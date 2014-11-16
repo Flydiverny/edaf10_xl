@@ -12,6 +12,7 @@ public class StatusLabel extends ColoredLabel implements Observer {
     public StatusLabel(Status status) {
         super("", Color.WHITE);
         this.status = status;
+        status.addObserver(this);
     }
 
     public void update(Observable observable, Object object) {

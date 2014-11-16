@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import xl.gui.Editor;
 import xl.model.Sheet;
 import xl.model.Status;
+import xl.model.XLException;
 
 public class EditorController implements ActionListener {
 	private Editable editable;
@@ -25,7 +26,7 @@ public class EditorController implements ActionListener {
 
 		try {
 			sheet.set(selection.address(), editable.value());
-		} catch (Exception e) {
+		} catch (XLException e) {
 			status.set(e.getMessage());
 		}
 
