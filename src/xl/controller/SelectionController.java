@@ -22,7 +22,7 @@ public class SelectionController extends MouseAdapter
 	};
 	
 	private Status status;
-
+	
 	public SelectionController(Selection selection, Status status){
 		this.selection = selection;
 		this.status = status;
@@ -46,6 +46,10 @@ public class SelectionController extends MouseAdapter
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource() instanceof Selectable)
 			switchSelection((Selectable)e.getSource());
+	}
+	
+	public void clearField() {
+		this.selection.clearField();
 	}
 }
 

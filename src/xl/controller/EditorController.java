@@ -3,7 +3,6 @@ package xl.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import xl.gui.Editor;
 import xl.model.Sheet;
 import xl.model.XLException;
 

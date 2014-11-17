@@ -15,13 +15,14 @@ import javax.swing.JPanel;
 import xl.controller.EditorController;
 import xl.controller.Selection;
 import xl.controller.SelectionController;
+import xl.controller.SheetController;
 import xl.controller.Status;
 import xl.gui.menu.XLMenuBar;
 import xl.model.Sheet;
 import xl.slot.SlotFactory;
 
 public class XL extends JFrame implements Printable {
-    private static final int ROWS = 10, COLUMNS = 8;
+    private static final int ROWS = 20, COLUMNS = 18;
     private XLCounter counter;
     private XLList xlList;
     
@@ -40,6 +41,7 @@ public class XL extends JFrame implements Printable {
         Status status = new Status();
         Selection selection = new Selection(sheet);
         SelectionController selectionController = new SelectionController(selection, status);
+        SheetController sheetController = new SheetController(sheet);
         
         StatusLabel statusLabel = new StatusLabel(status);
         JPanel statusPanel = new StatusPanel(statusLabel, selection);
@@ -52,7 +54,7 @@ public class XL extends JFrame implements Printable {
         add(NORTH, statusPanel);
         add(CENTER, editor);
         add(SOUTH, sheetPanel);
-        setJMenuBar(new XLMenuBar(this, xlList, statusLabel, sheet));
+        setJMenuBar(new XLMenuBar(this, xlList, statusLabel, sheetController, selectionController));
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);

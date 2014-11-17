@@ -17,7 +17,7 @@ public class SlotFactory implements xl.model.SlotFactory
 
 	public Slot build(String str) throws XLException {
 		if(str.length() == 0)
-			throw new XLException("Empty string");
+			return SlotFactory.EMPTY_SLOT;
 		
 		if(str.charAt(0) == '#')
 			return new CommentSlot(str);

@@ -10,20 +10,20 @@ import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import xl.controller.SheetController;
 import xl.gui.StatusLabel;
 import xl.gui.XL;
-import xl.model.Sheet;
 
 public abstract class OpenMenuItem extends JMenuItem implements ActionListener {
     protected StatusLabel statusLabel;
     protected XL xl;
-    protected Sheet sheet;
+    protected SheetController sheetController;
 
-    protected OpenMenuItem(XL xl, StatusLabel statusLabel, String title, Sheet sheet) {
+    protected OpenMenuItem(XL xl, StatusLabel statusLabel, String title, SheetController sheetController) {
         super(title);
         this.xl = xl;
         this.statusLabel = statusLabel;
-        this.sheet = sheet;
+        this.sheetController = sheetController;
         addActionListener(this);
     }
 

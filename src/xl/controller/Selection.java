@@ -16,10 +16,14 @@ public class Selection extends Observable
 		return addr;	
 	}
 	
-	public void setAddress(String addr) {
+	protected void setAddress(String addr) {
 		this.addr = addr;
 		this.setChanged();
 		this.notifyObservers();
+	}
+	
+	protected void clearField() {
+		sheet.clear(addr);
 	}
 	
 	public String expr() {

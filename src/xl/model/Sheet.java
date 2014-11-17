@@ -26,6 +26,13 @@ public class Sheet extends Observable implements Environment
 		// Try creating slot.
 		Slot slot = slotFactory.build(expr);
 		
+		// Empty slot 
+		if(slot == SlotFactory.EMPTY_SLOT) {
+			this.setChanged();
+			this.notifyObservers();
+			return;
+		}
+		
 		// check circular ref.
 		try {
 			slots.put(addr, new CircularSlot());
@@ -70,6 +77,20 @@ public class Sheet extends Observable implements Environment
 		for(Entry<String, String> entry : map.entrySet()) {
 			slots.put(entry.getKey(), slotFactory.build(entry.getValue()));
 		}
+		
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void clear(String addr) {
+		slots.remove(addr);
+		
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public void clear() {
+		this.slots.clear();
 		
 		this.setChanged();
 		this.notifyObservers();
