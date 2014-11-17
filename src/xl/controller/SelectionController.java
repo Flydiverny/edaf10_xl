@@ -2,8 +2,6 @@ package xl.controller;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import xl.model.Status;
-
 public class SelectionController extends MouseAdapter
 {
 	private Selection selection;

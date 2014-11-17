@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 import xl.controller.EditorController;
 import xl.controller.Selection;
 import xl.controller.SelectionController;
+import xl.controller.Status;
 import xl.gui.menu.XLMenuBar;
 import xl.model.Sheet;
-import xl.model.Status;
 import xl.slot.SlotFactory;
 
 public class XL extends JFrame implements Printable {

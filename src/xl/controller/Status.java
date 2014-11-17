@@ -1,4 +1,4 @@
-package xl.model;
+package xl.controller;
 
 import java.util.Observable;
 

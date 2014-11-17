@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
 
-import xl.model.Status;
+import xl.controller.Status;
 
 public class StatusLabel extends ColoredLabel implements Observer {
 	private Status status;

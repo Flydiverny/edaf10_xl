@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import xl.gui.Editor;
 import xl.model.Sheet;
-import xl.model.Status;
 import xl.model.XLException;
 
 public class EditorController implements ActionListener {
