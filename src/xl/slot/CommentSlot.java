@@ -3,12 +3,6 @@ import xl.model.Slot;
 import expr.Environment;
 
 
-/**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
- */
-
 public class CommentSlot implements Slot
 {
 	private String comment;
