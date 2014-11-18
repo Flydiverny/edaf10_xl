@@ -1,6 +1,4 @@
-package xl.slot;
-import xl.model.Slot;
-import xl.model.XLException;
+package xl.model;
 import expr.Environment;
 
 /**

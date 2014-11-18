@@ -5,7 +5,6 @@ import java.util.Map.Entry;
 import java.util.Observable;
 import java.util.Set;
 
-import xl.slot.CircularSlot;
 import xl.model.SlotFactory;
 import expr.Environment;
 
