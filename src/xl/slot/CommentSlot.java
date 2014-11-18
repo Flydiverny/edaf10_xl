@@ -2,13 +2,9 @@ package xl.slot;
 import xl.model.Slot;
 import expr.Environment;
 
-
 /**
- * <!-- begin-user-doc -->
- * <!--  end-user-doc  -->
- * @generated
+ * A slot representing a Comment node.
  */
-
 public class CommentSlot implements Slot
 {
 	private String comment;

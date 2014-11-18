@@ -41,7 +41,7 @@ public class SlotLabels extends GridPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		for(SlotLabel lbl : labelList) {
-			lbl.setText(sheet.representation(lbl.address()));
+			lbl.setText(sheet.representation(lbl.identifier()));
 		}
 	}
 }

@@ -3,7 +3,6 @@ package xl.gui.menu;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
-import xl.controller.SelectionController;
 import xl.controller.SheetController;
 import xl.gui.StatusLabel;
 import xl.gui.XL;

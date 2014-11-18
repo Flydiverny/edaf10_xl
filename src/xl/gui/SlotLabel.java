@@ -13,10 +13,6 @@ public class SlotLabel extends ColoredLabel implements Selectable {
     	this.addr = addr;
     }
     
-    public String address() {
-    	return addr;
-    }
-
 	@Override
 	public void setActive() {
 		setBackground(Color.YELLOW);

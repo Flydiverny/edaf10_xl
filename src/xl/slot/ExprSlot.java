@@ -3,7 +3,9 @@ import xl.model.Slot;
 import expr.Environment;
 import expr.Expr;
 
-
+/**
+ * A slot representing an Expression node.
+ */
 public class ExprSlot implements Slot
 {
 	private Expr expr;
@@ -24,6 +26,5 @@ public class ExprSlot implements Slot
 	public String representation(Environment env) {
 		return String.valueOf(this.value(env));
 	}
-	
 }
 
