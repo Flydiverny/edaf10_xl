@@ -2,11 +2,14 @@ package xl.controller;
 
 import java.util.Observable;
 
+/**
+ * ViewModel for the Status field.
+ */
 public class Status extends Observable {
 	
 	private String status;
 	
-	public void set(String status) {
+	protected void set(String status) {
 		this.status = status;
 		
 		this.setChanged();

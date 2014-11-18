@@ -2,11 +2,9 @@ package xl.slot;
 import xl.model.Slot;
 import expr.Environment;
 
-
 /**
  * A slot representing a Comment node.
  */
-
 public class CommentSlot implements Slot
 {
 	private String comment;
@@ -15,6 +13,7 @@ public class CommentSlot implements Slot
 		this.comment = comment;
 	}
 	
+	@Override
 	public double value(Environment env) {
 		return 0d;	
 	}

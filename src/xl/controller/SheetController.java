@@ -18,6 +18,11 @@ public class SheetController {
 		this.selection = selection;
 	}
 	
+	/**
+	 * Loads the Sheet data contained in the file specified by path.
+	 * @param path
+	 * @throws XLException
+	 */
 	public void load(String path) throws XLException {
 		try {
 			XLBufferedReader reader = new XLBufferedReader(path);
@@ -29,10 +34,16 @@ public class SheetController {
 			
 			sheet.load(map); // Load into sheet.
 		} catch (Exception e) {
+			sheet.clear();
 			throw new XLException(e.getMessage());
 		}
 	}
 	
+	/**
+	 * Saves the Sheet data in the file specified by path.
+	 * @param path
+	 * @throws XLException
+	 */
 	public void save(String path) throws XLException {
 		try {
 			XLPrintStream stream = new XLPrintStream(path);
@@ -43,9 +54,16 @@ public class SheetController {
 		}
 	}
 	
+	/**
+	 * Clears the sheet.
+	 */
 	public void clearAll() {
 		sheet.clear();
 	}
+	
+	/**
+	 * Clears the selected field.
+	 */
 	public void clearSelectedField() {
 		sheet.clear(selection.identifier());
 	}

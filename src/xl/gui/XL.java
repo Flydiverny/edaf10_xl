@@ -22,7 +22,7 @@ import xl.model.Sheet;
 import xl.slot.SlotFactory;
 
 public class XL extends JFrame implements Printable {
-    private static final int ROWS = 20, COLUMNS = 18;
+    private static final int ROWS = 10, COLUMNS = 8;
     private XLCounter counter;
     private XLList xlList;
     

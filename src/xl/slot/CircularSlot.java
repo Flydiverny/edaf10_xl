@@ -12,6 +12,7 @@ public class CircularSlot implements Slot
 		throw new UnsupportedOperationException("Invalid use of Circular Slot");
 	}
 
+	@Override
 	public double value(Environment env) {
 		throw new XLException("Circular reference");
 	}
