@@ -18,10 +18,12 @@ public class EditorController implements ActionListener {
 		this.sheet = sheet;
 		this.status = status;
 	}
-
+	/**
+	 * sends the text from the editable field to sheet so that the sheet can add the expression to the currently selected slot
+	 * catches and sets any errors from this process 
+	 */
 	private void putNewValue() {
 		status.clear();
-
 		try {
 			sheet.set(selection.address(), editable.value());
 		} catch (XLException e) {
