@@ -22,10 +22,6 @@ public class Selection extends Observable
 		this.notifyObservers();
 	}
 	
-	protected void clearField() {
-		sheet.clear(addr);
-	}
-	
 	public String expr() {
 		return sheet.toString(this.addr);	
 	}

@@ -47,9 +47,5 @@ public class SelectionController extends MouseAdapter
 		if(e.getSource() instanceof Selectable)
 			switchSelection((Selectable)e.getSource());
 	}
-	
-	public void clearField() {
-		this.selection.clearField();
-	}
 }
 

@@ -10,7 +10,7 @@ import xl.gui.XL;
 import xl.gui.XLList;
 
 public class XLMenuBar extends JMenuBar {
-    public XLMenuBar(XL xl, XLList xlList, StatusLabel statusLabel, SheetController sheetController, SelectionController selectionController) {
+    public XLMenuBar(XL xl, XLList xlList, StatusLabel statusLabel, SheetController sheetController) {
         JMenu file = new JMenu("File");
         JMenu edit = new JMenu("Edit");
         file.add(new PrintMenuItem(xl, statusLabel));
@@ -18,7 +18,7 @@ public class XLMenuBar extends JMenuBar {
         file.add(new LoadMenuItem(xl, statusLabel, sheetController));
         file.add(new NewMenuItem(xl));
         file.add(new CloseMenuItem(xl, xlList));
-        edit.add(new ClearMenuItem(selectionController));
+        edit.add(new ClearMenuItem(sheetController));
         edit.add(new ClearAllMenuItem(sheetController));
         add(file);
         add(edit);

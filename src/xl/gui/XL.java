@@ -41,7 +41,7 @@ public class XL extends JFrame implements Printable {
         Status status = new Status();
         Selection selection = new Selection(sheet);
         SelectionController selectionController = new SelectionController(selection, status);
-        SheetController sheetController = new SheetController(sheet);
+        SheetController sheetController = new SheetController(sheet, selection);
         
         StatusLabel statusLabel = new StatusLabel(status);
         JPanel statusPanel = new StatusPanel(statusLabel, selection);
@@ -54,7 +54,7 @@ public class XL extends JFrame implements Printable {
         add(NORTH, statusPanel);
         add(CENTER, editor);
         add(SOUTH, sheetPanel);
-        setJMenuBar(new XLMenuBar(this, xlList, statusLabel, sheetController, selectionController));
+        setJMenuBar(new XLMenuBar(this, xlList, statusLabel, sheetController));
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);

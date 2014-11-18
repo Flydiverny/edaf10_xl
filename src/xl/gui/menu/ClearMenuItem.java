@@ -6,18 +6,19 @@ import java.awt.event.ActionListener;
 import javax.swing.JMenuItem;
 
 import xl.controller.SelectionController;
+import xl.controller.SheetController;
 
 class ClearMenuItem extends JMenuItem implements ActionListener {
-    private SelectionController selectionController;
+    private SheetController sheetController;
 	
-	public ClearMenuItem(SelectionController selectionController) {
+	public ClearMenuItem(SheetController sheetController) {
         super("Clear");
         addActionListener(this);
         
-        this.selectionController = selectionController;
+        this.sheetController = sheetController;
     }
 
     public void actionPerformed(ActionEvent e) {
-        selectionController.clearField();
+        sheetController.clearSelectedField();
     }
 }

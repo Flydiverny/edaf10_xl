@@ -11,9 +11,11 @@ import xl.serialization.XLPrintStream;
 public class SheetController {
 	
 	private Sheet sheet;
+	private Selection selection;
 	
-	public SheetController(Sheet sheet) {
+	public SheetController(Sheet sheet, Selection selection) {
 		this.sheet = sheet;
+		this.selection = selection;
 	}
 	
 	public void load(String path) throws FileNotFoundException {
@@ -31,5 +33,8 @@ public class SheetController {
 	
 	public void clearAll() {
 		sheet.clear();
+	}
+	public void clearSelectedField() {
+		sheet.clear(selection.address());
 	}
 }
