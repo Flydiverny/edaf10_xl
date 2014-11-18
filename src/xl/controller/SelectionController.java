@@ -5,22 +5,6 @@ import java.awt.event.MouseEvent;
 public class SelectionController extends MouseAdapter
 {
 	private Selection selection;
-	private Selectable current = new Selectable() {
-		@Override
-		public void setActive() {
-		}
-
-		@Override
-		public void setInactive() {
-		}
-
-		@Override
-		public String identifier() {
-			return "null-object";
-		}
-		
-	};
-	
 	private Status status;
 	
 	public SelectionController(Selection selection, Status status){
@@ -32,14 +16,10 @@ public class SelectionController extends MouseAdapter
 		switchSelection(sel);
 	}
 	
-	private void switchSelection(Selectable newSel) {
+	private void switchSelection(Selectable selectable) {
 		status.clear();
 		
-		current.setInactive();
-		current = newSel;
-		
-		current.setActive();
-		selection.setAddress(current.identifier());
+		selection.setSelection(selectable);
 	}
 	
 	@Override

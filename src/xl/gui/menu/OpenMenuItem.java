@@ -3,8 +3,6 @@ package xl.gui.menu;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
-
 import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.filechooser.FileFilter;
@@ -13,6 +11,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import xl.controller.SheetController;
 import xl.gui.StatusLabel;
 import xl.gui.XL;
+import xl.model.XLException;
 
 public abstract class OpenMenuItem extends JMenuItem implements ActionListener {
     protected StatusLabel statusLabel;
@@ -27,7 +26,7 @@ public abstract class OpenMenuItem extends JMenuItem implements ActionListener {
         addActionListener(this);
     }
 
-    protected abstract void action(String path) throws FileNotFoundException;
+    protected abstract void action(String path) throws XLException;
 
     public void actionPerformed(ActionEvent event) {
         JFileChooser fileChooser = new JFileChooser(".");
@@ -39,7 +38,7 @@ public abstract class OpenMenuItem extends JMenuItem implements ActionListener {
             try {
                 action(file.toString());
                 xl.rename(file.getName());
-            } catch (FileNotFoundException e) {
+            } catch (XLException e) {
                 statusLabel.setText(e.getMessage());
             }
         }

@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JMenuItem;
 
-import xl.controller.SelectionController;
 import xl.controller.SheetController;
 
 class ClearMenuItem extends JMenuItem implements ActionListener {
