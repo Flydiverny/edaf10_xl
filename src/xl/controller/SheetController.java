@@ -12,10 +12,12 @@ public class SheetController {
 	
 	private Sheet sheet;
 	private Selection selection;
+	private Status status; 
 	
-	public SheetController(Sheet sheet, Selection selection) {
+	public SheetController(Sheet sheet, Selection selection, Status status) {
 		this.sheet = sheet;
 		this.selection = selection;
+		this.status = status;
 	}
 	
 	/**
@@ -65,6 +67,11 @@ public class SheetController {
 	 * Clears the selected field.
 	 */
 	public void clearSelectedField() {
-		sheet.clear(selection.identifier());
+		try {
+			sheet.clear(selection.identifier());
+		} catch(XLException e) {
+			status.set(e.getMessage());
+		}
+		
 	}
 }

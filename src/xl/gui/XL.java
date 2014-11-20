@@ -39,14 +39,14 @@ public class XL extends JFrame implements Printable {
 
         Sheet sheet = new Sheet(new SlotFactory());
         Status status = new Status();
-        Selection selection = new Selection(sheet);
+        Selection selection = new Selection();
         SelectionController selectionController = new SelectionController(selection, status);
-        SheetController sheetController = new SheetController(sheet, selection);
+        SheetController sheetController = new SheetController(sheet, selection, status);
         
         StatusLabel statusLabel = new StatusLabel(status);
         JPanel statusPanel = new StatusPanel(statusLabel, selection);
         JPanel sheetPanel = new SheetPanel(ROWS, COLUMNS, sheet, selectionController);
-        Editor editor = new Editor(selection);
+        Editor editor = new Editor(selection, sheet);
         
         EditorController editorController = new EditorController(sheet, editor, selection, status);
         editor.addActionListener(editorController);

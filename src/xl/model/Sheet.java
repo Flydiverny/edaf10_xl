@@ -31,26 +31,30 @@ public class Sheet extends Observable implements Environment
 		// Try creating slot.
 		Slot slot = slotFactory.build(expr);
 		
-		// Empty slot 
-		if(slot == SlotFactory.EMPTY_SLOT) {
-			this.setChanged();
-			this.notifyObservers();
-			return;
-		}
-		
-		// check circular ref.
+		// check circular ref and div by zero and empty
 		try {
-			slots.put(addr, new CircularSlot());
-			slot.value(this);
+			if(slot != SlotFactory.EMPTY_SLOT) {
+				slots.put(addr, new CircularSlot());
+				slot.value(this); //here comes circular exception
+				slots.put(addr, slot);
+			}
+			validateSlots();//here comes other funny exception
 		} catch(XLException e) {
 			slots.put(addr, old);
 			throw e;
 		}
+
+		// All good save it and notify Ulf
 		
-		// All good save it and notify
-		slots.put(addr, slot);
 		this.setChanged();
 		this.notifyObservers();
+	}
+	
+	private void validateSlots() throws XLException{
+		//iterate map with value.
+		for(Entry<String, Slot> entry : slots.entrySet()) {
+			entry.getValue().value(this);
+		}
 	}
 	
 	/**
@@ -113,11 +117,8 @@ public class Sheet extends Observable implements Environment
 	 * Clears a field in the sheet.
 	 * @param addr
 	 */
-	public void clear(String addr) {
-		slots.remove(addr);
-		
-		this.setChanged();
-		this.notifyObservers();
+	public void clear(String addr) throws XLException {
+		this.set(addr, ""); //magics ;)
 	}
 	
 	/**

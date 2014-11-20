@@ -1,7 +1,6 @@
 package xl.controller;
 import java.util.Observable;
 
-import xl.model.Sheet;
 
 /**
  * ViewModel for the Current Selection.
@@ -25,12 +24,6 @@ public class Selection extends Observable
 		
 	};
 	
-	private Sheet sheet;
-	
-	public Selection(Sheet sheet) {
-		this.sheet = sheet;
-	}
-	
 	public String identifier() {
 		return current.identifier();	
 	}
@@ -45,9 +38,6 @@ public class Selection extends Observable
 		this.setChanged();
 		this.notifyObservers();
 	}
-	
-	public String expr() {
-		return sheet.toString(this.current.identifier());	
-	}
+
 }
 
